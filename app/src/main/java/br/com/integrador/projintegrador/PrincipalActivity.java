@@ -94,7 +94,8 @@ public class PrincipalActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(PrincipalActivity.this, "Login efetuado com sucesso.",
                                     Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(PrincipalActivity.this,Cadastrar_EstacionamentoActivity.class);
+
+                            Intent intent = new Intent(PrincipalActivity.this,SecundariaActivity.class);
                             startActivity(intent);
                         } else {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());

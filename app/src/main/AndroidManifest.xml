@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Cadastrar_EstacionamentoActivity"></activity>
+        <activity android:name=".Cadastrar_EstacionamentoActivity" />
+        <activity android:name=".SecundariaActivity"></activity>
     </application>
 
 </manifest>
