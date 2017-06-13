@@ -98,6 +98,7 @@ public class PrincipalActivity extends AppCompatActivity {
                             Intent intent = new Intent(PrincipalActivity.this,SecundariaActivity.class);
                             startActivity(intent);
                         } else {
+
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
                             Toast.makeText(PrincipalActivity.this, "Login ou senha inválidos.",
                                     Toast.LENGTH_LONG).show();
