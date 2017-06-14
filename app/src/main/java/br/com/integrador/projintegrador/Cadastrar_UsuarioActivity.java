@@ -19,7 +19,7 @@ public class Cadastrar_UsuarioActivity extends AppCompatActivity {
 
     private static final String TAG = "EmailPassword";
     private FirebaseAuth mAuth;
-    private EditText edtCadEmail, edtCadSenha;
+    private EditText edtCadEmail, edtCadSenha, edtConfSenha;
     private Button btnCadUsuario;
     private Usuario usuarios;
 
@@ -30,6 +30,7 @@ public class Cadastrar_UsuarioActivity extends AppCompatActivity {
 
         edtCadEmail = (EditText) findViewById(R.id.edtCadEmail);
         edtCadSenha = (EditText) findViewById(R.id.edtCadSenha);
+        edtConfSenha = (EditText) findViewById(R.id.edtConfSenha);
         btnCadUsuario = (Button) findViewById(R.id.btnCadUsuario);
 
         mAuth = FirebaseAuth.getInstance();
@@ -41,10 +42,18 @@ public class Cadastrar_UsuarioActivity extends AppCompatActivity {
                 usuarios.setLoginUsuario(edtCadEmail.getText().toString());
                 usuarios.setSenhaUsuario((edtCadSenha.getText().toString()));
 
-                createAccount(usuarios.getLoginUsuario().toString(), usuarios.getSenhaUsuario().toString());
+                if (edtCadSenha.getText().toString().equals(edtConfSenha.getText().toString())){
+                    createAccount(usuarios.getLoginUsuario().toString(), usuarios.getSenhaUsuario().toString());
+                    edtCadEmail.setText("");
+                    edtCadSenha.setText("");
+                    edtConfSenha.setText("");
+                    Toast.makeText(Cadastrar_UsuarioActivity.this, "Cadastro de usuário efetuado com sucesso." ,
+                            Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(Cadastrar_UsuarioActivity.this, "As senhas digitadas são diferentes." ,
+                            Toast.LENGTH_LONG).show();
+                }
 
-                edtCadEmail.setText("");
-                edtCadSenha.setText("");
             }
         });
     }
