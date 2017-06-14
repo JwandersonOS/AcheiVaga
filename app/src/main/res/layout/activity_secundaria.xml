@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cadastrar Estacionamento"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:textAllCaps="false" />
 
     <Button
@@ -33,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Listar os Estacionamentos"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:textAllCaps="false" />
 
     <Button
@@ -41,7 +41,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cadastrar Usuário do Sistema"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btnSair"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sair do Sistema - Logout"
+        android:layout_margin="5dp"
         android:textAllCaps="false" />
 
 </LinearLayout>
