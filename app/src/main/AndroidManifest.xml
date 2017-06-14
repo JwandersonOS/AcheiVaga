@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Cadastrar_EstacionamentoActivity" />
-        <activity android:name=".SecundariaActivity"></activity>
+        <activity android:name=".SecundariaActivity" />
+        <activity android:name=".Cadastrar_UsuarioActivity"></activity>
     </application>
 
 </manifest>

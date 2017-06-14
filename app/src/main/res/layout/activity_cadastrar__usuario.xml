@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="br.com.integrador.projintegrador.PrincipalActivity">
+    tools:context="br.com.integrador.projintegrador.Cadastrar_UsuarioActivity">
 
 
     <ImageView
@@ -19,40 +19,27 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:text="Login: Admninistrador do Estacionamento" />
+        android:text="Preencha os campos para efetuar o cadastro de Login" />
 
     <EditText
-        android:id="@+id/edtLogin"
+        android:id="@+id/edtCadEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Login" />
+        android:hint="Informe um e-mail para Login" />
 
     <EditText
-        android:id="@+id/edtSenha"
+        android:id="@+id/edtCadSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Senha"
+        android:hint="Informe uma Senha"
         android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnCadUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Entrar no Sistema"
+        android:text="Cadastrar Usuário"
         android:textAllCaps="false" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:text="Caso não tenha cadastro clique no botão abaixo:" />
-
-        <Button
-            android:id="@+id/btnCadastrar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Cadastrar-se no Sistema"
-            android:textAllCaps="false" />
 
 </LinearLayout>

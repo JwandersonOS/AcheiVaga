@@ -15,9 +15,9 @@ public class Cadastrar_EstacionamentoActivity extends AppCompatActivity {
     private DatabaseReference estacionamentoReference = databaseReference.child("estacionamento");
 
     private Button btnSalvar, btnListar;
-    private EditText edtPropriet, edtEstac, edtCNPJ, edtTelefone,
-                     edtEndereco, edtNumero, edtBairro, edtCidade,
-                     edtQtdVagas, edtServico, edtEmail, edtSenha;
+    private EditText edtPropriet, edtEstac, edtCNPJ,
+                     edtTelefone, edtEndereco, edtBairro,
+                     edtCidade, edtEmail, edtSenha;
 
 
     @Override
@@ -25,8 +25,13 @@ public class Cadastrar_EstacionamentoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar__estacionamento);
 
-        final EditText edtPropriet = (EditText) findViewById(R.id.edtPropriet);
-        final EditText edtEstac = (EditText) findViewById(R.id.edtEstac);
+        edtPropriet = (EditText) findViewById(R.id.edtPropriet);
+        edtEstac = (EditText) findViewById(R.id.edtEstac);
+        edtCNPJ = (EditText) findViewById(R.id.edtCNPJ);
+        edtTelefone = (EditText) findViewById(R.id.edtTelefone);
+        edtEndereco = (EditText) findViewById(R.id.edtEndereco);
+        edtBairro = (EditText) findViewById(R.id.edtBairro);
+        edtCidade = (EditText) findViewById(R.id.edtCidade);
 
         Button btnSalvar = (Button) findViewById(R.id.btnSalvar);
 
@@ -37,11 +42,23 @@ public class Cadastrar_EstacionamentoActivity extends AppCompatActivity {
                 Estacionamento estacionamento = new Estacionamento();
                 estacionamento.setProprietEstacionamento(edtPropriet.getText().toString());
                 estacionamento.setNomeEstacionamento(edtEstac.getText().toString());
+                estacionamento.setCnpjEstacionamento(edtCNPJ.getText().toString());
+                estacionamento.setFoneEstacionamento(edtTelefone.getText().toString());
+                estacionamento.setEndEstacionamento(edtEndereco.getText().toString());
+                estacionamento.setBairroEstacionamento(edtBairro.getText().toString());
+                estacionamento.setCidEstacionamento(edtCidade.getText().toString());
+
 
                 estacionamentoReference.child(edtPropriet.getText().toString()).setValue(estacionamento);
 
                 edtPropriet.setText("");
                 edtEstac.setText("");
+                edtCNPJ.setText("");
+                edtTelefone.setText("");
+                edtEndereco.setText("");
+                edtBairro.setText("");
+                edtCidade.setText("");
+
 
             }
         });
