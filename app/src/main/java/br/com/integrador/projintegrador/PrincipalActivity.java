@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class PrincipalActivity extends AppCompatActivity {
 
     private EditText edtLogin, edtSenha;
-    private Button btnLogin, btnCadastrar;
+    private Button btnLogin;
     private Usuario usuarios;
     private static final String TAG = "EmailPassword";
     private FirebaseAuth mAuth;
@@ -35,7 +35,6 @@ public class PrincipalActivity extends AppCompatActivity {
         edtLogin = (EditText) findViewById(R.id.edtLogin);
         edtSenha = (EditText) findViewById(R.id.edtSenha);
         btnLogin = (Button) findViewById(R.id.btnLogin);
-        btnCadastrar = (Button) findViewById(R.id.btnCadastrar);
 
         mAuth = FirebaseAuth.getInstance();
         usuarios = new Usuario();
@@ -59,17 +58,6 @@ public class PrincipalActivity extends AppCompatActivity {
 
             }
         });
-
-
-        btnCadastrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(PrincipalActivity.this,Cadastrar_UsuarioActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
 
     }
 
@@ -104,7 +92,7 @@ public class PrincipalActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(PrincipalActivity.this, "Login efetuado com sucesso.",
                                     Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(PrincipalActivity.this,Cadastrar_EstacionamentoActivity.class);
+                            Intent intent = new Intent(PrincipalActivity.this,SecundariaActivity.class);
                             startActivity(intent);
                         } else {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());

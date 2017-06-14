@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:text="Login: Admninistrador do Estacionamento" />
+        android:text="Login do Admninistrador." />
 
     <EditText
         android:id="@+id/edtLogin"
@@ -46,13 +46,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:text="Caso não tenha cadastro clique no botão abaixo:" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Caso não tenha cadastro permitindo acesso ao sistema, solicite-o ao Adminitrador."
+        android:textAlignment="center" />
 
-        <Button
-            android:id="@+id/btnCadastrar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Cadastrar-se no Sistema"
-            android:textAllCaps="false" />
 
 </LinearLayout>

@@ -48,7 +48,6 @@ public class Cadastrar_EstacionamentoActivity extends AppCompatActivity {
                 estacionamento.setBairroEstacionamento(edtBairro.getText().toString());
                 estacionamento.setCidEstacionamento(edtCidade.getText().toString());
 
-
                 estacionamentoReference.child(edtPropriet.getText().toString()).setValue(estacionamento);
 
                 edtPropriet.setText("");
@@ -59,12 +58,7 @@ public class Cadastrar_EstacionamentoActivity extends AppCompatActivity {
                 edtBairro.setText("");
                 edtCidade.setText("");
 
-
             }
         });
-
-
-
-
     }
 }
