@@ -6,19 +6,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
+
 public class SecundariaActivity extends AppCompatActivity {
 
-    private Button btnCadEstacionamento, btnListarEstacionamento, btnCadLogin;
-
+    private Button btnCadEstacionamento, btnListarEstacionamento, btnCadLogin, btnLogout;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secundaria);
 
+        mAuth = FirebaseAuth.getInstance();
+
         btnCadEstacionamento = (Button) findViewById(R.id.btnCadEstacionamento);
         btnCadLogin = (Button) findViewById(R.id.btnCadLogin);
         btnListarEstacionamento = (Button) findViewById(R.id.btnListarEstacionamento);
+        btnLogout = (Button) findViewById(R.id.btnLogout);
 
         btnCadEstacionamento.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,7 +37,8 @@ public class SecundariaActivity extends AppCompatActivity {
         btnListarEstacionamento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //
+                Intent intent = new Intent(SecundariaActivity.this,Lista_Estacionamento.class);
+                startActivity(intent);
             }
         });
 
@@ -43,5 +50,19 @@ public class SecundariaActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logoutUsuario();
+            }
+        });
+
     }
+
+    private void logoutUsuario() {
+        mAuth.signOut();
+        finish();
+    }
+
 }

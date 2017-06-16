@@ -70,4 +70,8 @@ public class Estacionamento {
         this.cidEstacionamento = cidEstacionamento;
     }
 
+    @Override
+    public String toString() {
+        return nomeEstacionamento;
+    }
 }

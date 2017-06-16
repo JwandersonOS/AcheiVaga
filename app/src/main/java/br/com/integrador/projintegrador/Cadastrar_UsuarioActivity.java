@@ -43,7 +43,7 @@ public class Cadastrar_UsuarioActivity extends AppCompatActivity {
                 usuarios.setSenhaUsuario((edtCadSenha.getText().toString()));
 
                 if (edtCadSenha.getText().toString().equals(edtConfSenha.getText().toString())){
-                    createAccount(usuarios.getLoginUsuario().toString(), usuarios.getSenhaUsuario().toString());
+                    criarConta(usuarios.getLoginUsuario().toString(), usuarios.getSenhaUsuario().toString());
                     edtCadEmail.setText("");
                     edtCadSenha.setText("");
                     edtConfSenha.setText("");
@@ -58,13 +58,8 @@ public class Cadastrar_UsuarioActivity extends AppCompatActivity {
         });
     }
 
-    private void createAccount(String email, String password) {
+    private void criarConta(String email, String password) {
         Log.d(TAG, "createAccount:" + email);
-        /*
-        if (!validateForm()) {
-            return;
-        }
-        */
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -82,12 +77,8 @@ public class Cadastrar_UsuarioActivity extends AppCompatActivity {
                             //updateUI(null);
                         }
 
-
                     }
                 });
     }
-
-
-
 
 }

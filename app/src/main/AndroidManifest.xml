@@ -18,9 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Cadastrar_EstacionamentoActivity" />
-        <activity android:name=".SecundariaActivity" />
-        <activity android:name=".Cadastrar_UsuarioActivity"></activity>
+
+        <activity android:name=".Cadastrar_EstacionamentoActivity" android:parentActivityName=".SecundariaActivity"></activity>
+        <activity android:name=".SecundariaActivity" android:parentActivityName=".PrincipalActivity"/>
+        <activity android:name=".Cadastrar_UsuarioActivity" android:parentActivityName=".SecundariaActivity"></activity>
+        <activity android:name=".Lista_Estacionamento" android:parentActivityName=".SecundariaActivity"/>
     </application>
 
 </manifest>
