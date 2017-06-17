@@ -15,7 +15,6 @@ public class Estacionamento implements Serializable {
     private String endEstacionamento;
     private String bairroEstacionamento;
     private String cidEstacionamento;
-    private String queCoisaNao;
 
     public String getProprietEstacionamento() {
         return proprietEstacionamento;
