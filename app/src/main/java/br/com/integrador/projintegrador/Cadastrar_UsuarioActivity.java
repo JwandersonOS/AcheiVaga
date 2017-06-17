@@ -72,7 +72,7 @@ public class Cadastrar_UsuarioActivity extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(Cadastrar_UsuarioActivity.this, "Authentication failed.",
+                            Toast.makeText(Cadastrar_UsuarioActivity.this, "Ocorreu um erro na criação da conta do usuário.",
                                     Toast.LENGTH_SHORT).show();
                             //updateUI(null);
                         }

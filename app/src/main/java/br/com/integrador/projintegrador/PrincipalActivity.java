@@ -49,13 +49,14 @@ public class PrincipalActivity extends AppCompatActivity {
                 usuarios.setLoginUsuario(edtLogin.getText().toString());
                 usuarios.setSenhaUsuario(edtSenha.getText().toString());
 
-                dialog = ProgressDialog.show(PrincipalActivity.this, "Autenticando", "Autenticando usuário, aguarde...", true, false);
+                dialog = ProgressDialog.show(PrincipalActivity.this, "Autenticando", "Autenticando usuário, por favor aguarde...", true, false);
                 //Chama o metodo verificaConexao para checar se o App está conectado a internet
                 if (verificaConexao()) {
                     //Chama o método para autenticar o usuário no banco Firebase
                     autenticarUsuario(usuarios.getLoginUsuario().toString(),usuarios.getSenhaUsuario().toString());
                 } else {
                     Toast.makeText(PrincipalActivity.this, "Aparentemente você está sem conexão!", Toast.LENGTH_LONG).show();
+                    dialog.dismiss();
                 }
 
                 edtSenha.setText("");
@@ -89,8 +90,6 @@ public class PrincipalActivity extends AppCompatActivity {
     private void autenticarUsuario(String email, String password) {
         Log.d(TAG, "signIn:" + email);
 
-
-
         if((!email.equals(""))&&(!password.equals(""))){
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -105,6 +104,7 @@ public class PrincipalActivity extends AppCompatActivity {
                                 Intent intent = new Intent(PrincipalActivity.this, SecundariaActivity.class);
                                 startActivity(intent);
                             } else {
+                                dialog.dismiss();
                                 Log.w(TAG, "signInWithEmail:failure", task.getException());
                                 Toast.makeText(PrincipalActivity.this, "Login ou senha inválidos.",
                                         Toast.LENGTH_LONG).show();
@@ -112,6 +112,7 @@ public class PrincipalActivity extends AppCompatActivity {
                         }
                     });
         }else{
+            dialog.dismiss();
             Toast.makeText(PrincipalActivity.this, "É obrigatório o preenchimento dos campos E-mail e Senha.",
                     Toast.LENGTH_LONG).show();
         }

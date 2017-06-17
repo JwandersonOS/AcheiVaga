@@ -33,7 +33,7 @@ public class Lista_Estacionamento extends AppCompatActivity {
 
         final ListView listView = (ListView) findViewById(R.id.Lista);
 
-        dialog = ProgressDialog.show(this, "Lista", "Listando estacionamentos, aguarde...", true, false);
+        dialog = ProgressDialog.show(this, "Listando", "Listando os estacionamentos, por favor aguarde...", true, false);
 
         estacionamentoReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -58,7 +58,7 @@ public class Lista_Estacionamento extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                dialog.dismiss();
             }
         });
     }
