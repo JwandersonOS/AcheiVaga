@@ -1,5 +1,6 @@
 package br.com.integrador.projintegrador;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
@@ -23,7 +24,7 @@ public class Lista_Estacionamento extends AppCompatActivity {
             getInstance().getReference();
     private DatabaseReference estacionamentoReference =
             databaseReference.child("estacionamento");
-
+    private ProgressDialog dialog;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,8 @@ public class Lista_Estacionamento extends AppCompatActivity {
         setContentView(R.layout.lista_estacionamento);
 
         final ListView listView = (ListView) findViewById(R.id.Lista);
+
+        dialog = ProgressDialog.show(this, "Lista", "Listando estacionamentos, aguarde...", true, false);
 
         estacionamentoReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -50,6 +53,7 @@ public class Lista_Estacionamento extends AppCompatActivity {
                                 estacionamento);
                 listView.setAdapter(adapter);
 
+                dialog.dismiss();
             }
 
             @Override

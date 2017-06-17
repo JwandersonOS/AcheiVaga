@@ -1,5 +1,6 @@
 package br.com.integrador.projintegrador;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -26,6 +27,7 @@ public class PrincipalActivity extends AppCompatActivity {
     private Usuario usuarios;
     private static final String TAG = "EmailPassword";
     private FirebaseAuth mAuth;
+    private  ProgressDialog dialog;
 
 
     @Override
@@ -40,22 +42,24 @@ public class PrincipalActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         usuarios = new Usuario();
 
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 usuarios.setLoginUsuario(edtLogin.getText().toString());
                 usuarios.setSenhaUsuario(edtSenha.getText().toString());
 
+                dialog = ProgressDialog.show(PrincipalActivity.this, "Autenticando", "Autenticando usuário, aguarde...", true, false);
                 //Chama o metodo verificaConexao para checar se o App está conectado a internet
                 if (verificaConexao()) {
                     //Chama o método para autenticar o usuário no banco Firebase
                     autenticarUsuario(usuarios.getLoginUsuario().toString(),usuarios.getSenhaUsuario().toString());
-                    edtLogin.setText("");
-                    edtSenha.setText("");
-                //    Toast.makeText(PrincipalActivity.this, "Conectado!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(PrincipalActivity.this, "Aparentemente você está sem conexão!", Toast.LENGTH_LONG).show();
                 }
+
+                edtSenha.setText("");
+                edtLogin.setText("");
 
             }
         });
@@ -84,24 +88,33 @@ public class PrincipalActivity extends AppCompatActivity {
     */
     private void autenticarUsuario(String email, String password) {
         Log.d(TAG, "signIn:" + email);
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Log.d(TAG, "signInWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(PrincipalActivity.this, "Login efetuado com sucesso.",
-                                    Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(PrincipalActivity.this,SecundariaActivity.class);
-                            startActivity(intent);
-                        } else {
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(PrincipalActivity.this, "Login ou senha inválidos.",
-                                    Toast.LENGTH_LONG).show();
+
+
+
+        if((!email.equals(""))&&(!password.equals(""))){
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Log.d(TAG, "signInWithEmail:success");
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                Toast.makeText(PrincipalActivity.this, "Login efetuado com sucesso.",
+                                        Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+                                Intent intent = new Intent(PrincipalActivity.this, SecundariaActivity.class);
+                                startActivity(intent);
+                            } else {
+                                Log.w(TAG, "signInWithEmail:failure", task.getException());
+                                Toast.makeText(PrincipalActivity.this, "Login ou senha inválidos.",
+                                        Toast.LENGTH_LONG).show();
+                            }
                         }
-                    }
-                });
+                    });
+        }else{
+            Toast.makeText(PrincipalActivity.this, "É obrigatório o preenchimento dos campos E-mail e Senha.",
+                    Toast.LENGTH_LONG).show();
+        }
     }
 
 }

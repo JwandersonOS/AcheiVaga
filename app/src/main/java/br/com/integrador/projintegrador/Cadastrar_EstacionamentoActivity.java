@@ -17,7 +17,7 @@ public class Cadastrar_EstacionamentoActivity extends AppCompatActivity {
     private Button btnSalvar, btnListar;
     private EditText edtPropriet, edtEstac, edtCNPJ,
                      edtTelefone, edtEndereco, edtBairro,
-                     edtCidade, edtEmail, edtSenha;
+                     edtCidade, edtEmail;
 
 
     @Override
@@ -32,6 +32,7 @@ public class Cadastrar_EstacionamentoActivity extends AppCompatActivity {
         edtEndereco = (EditText) findViewById(R.id.edtEndereco);
         edtBairro = (EditText) findViewById(R.id.edtBairro);
         edtCidade = (EditText) findViewById(R.id.edtCidade);
+        edtEmail = (EditText) findViewById(R.id.edtEmail);
 
         Button btnSalvar = (Button) findViewById(R.id.btnSalvar);
 
@@ -47,6 +48,7 @@ public class Cadastrar_EstacionamentoActivity extends AppCompatActivity {
                 estacionamento.setEndEstacionamento(edtEndereco.getText().toString());
                 estacionamento.setBairroEstacionamento(edtBairro.getText().toString());
                 estacionamento.setCidEstacionamento(edtCidade.getText().toString());
+                estacionamento.setCidEstacionamento(edtEmail.getText().toString());
 
                 estacionamentoReference.child(edtPropriet.getText().toString()).setValue(estacionamento);
 
@@ -57,6 +59,7 @@ public class Cadastrar_EstacionamentoActivity extends AppCompatActivity {
                 edtEndereco.setText("");
                 edtBairro.setText("");
                 edtCidade.setText("");
+                edtEmail.setText("");
 
             }
         });
