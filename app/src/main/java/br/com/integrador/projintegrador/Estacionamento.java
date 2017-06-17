@@ -1,10 +1,12 @@
 package br.com.integrador.projintegrador;
 
+import java.io.Serializable;
+
 /**
  * Created by anton on 11/06/2017.
  */
 
-public class Estacionamento {
+public class Estacionamento implements Serializable {
 
     private String proprietEstacionamento;
     private String nomeEstacionamento;

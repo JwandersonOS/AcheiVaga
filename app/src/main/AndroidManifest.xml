@@ -23,6 +23,7 @@
         <activity android:name=".SecundariaActivity" android:parentActivityName=".PrincipalActivity"/>
         <activity android:name=".Cadastrar_UsuarioActivity" android:parentActivityName=".SecundariaActivity"></activity>
         <activity android:name=".Lista_Estacionamento" android:parentActivityName=".SecundariaActivity"/>
+        <activity android:name=".Detalhes_Itens"/>
     </application>
 
 </manifest>
