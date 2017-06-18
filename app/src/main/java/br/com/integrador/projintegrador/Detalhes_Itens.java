@@ -17,11 +17,12 @@ public class Detalhes_Itens extends AppCompatActivity {
     TextView viewEndereco;
     TextView viewBairro;
     TextView viewCidade;
+    TextView viewEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalhes_itens);
+        setContentView(R.layout.acitivity_detalhes_itens);
 
         viewProprie = (TextView) findViewById(R.id.textProprie);
         viewEstacio = (TextView) findViewById(R.id.textEstacio);
@@ -30,6 +31,8 @@ public class Detalhes_Itens extends AppCompatActivity {
         viewEndereco = (TextView) findViewById(R.id.textEndereco);
         viewBairro = (TextView) findViewById(R.id.textBairro);
         viewCidade = (TextView) findViewById(R.id.textCidade);
+        viewEmail=(TextView) findViewById(R.id.textEmail);
+
 
         Bundle args = getIntent().getBundleExtra("args_Lista_Estacionamento");
 
@@ -43,6 +46,7 @@ public class Detalhes_Itens extends AppCompatActivity {
             String endereco = estacionamento.getEndEstacionamento();
             String bairro = estacionamento.getBairroEstacionamento();
             String cidade = estacionamento.getCidEstacionamento();
+            String Email= estacionamento.getEmailEstacionamento();
 
             viewProprie.setText(nomeProprie);
             viewEstacio.setText(nomeEstacio);
@@ -51,6 +55,7 @@ public class Detalhes_Itens extends AppCompatActivity {
             viewEndereco.setText(endereco);
             viewBairro.setText(bairro);
             viewCidade.setText(cidade);
+            viewEmail.setText(Email);
         }
     }
 }

@@ -3,6 +3,7 @@ package br.com.integrador.projintegrador;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -32,6 +33,7 @@ public class Lista_Estacionamento extends AppCompatActivity implements AdapterVi
     EditText endereco;
     EditText bairro;
     EditText cidade;
+    EditText Email;
 
     private DatabaseReference databaseReference = FirebaseDatabase.
             getInstance().getReference();
@@ -89,6 +91,7 @@ public class Lista_Estacionamento extends AppCompatActivity implements AdapterVi
         args.putString("endereco", String.valueOf(endereco));
         args.putString("bairro", String.valueOf(bairro));
         args.putString("cidade", String.valueOf(cidade));
+        args.putString("Email", String.valueOf(Email));
         args.putSerializable("estacionamento", estacionamento);
 
         Intent intent = new Intent(this, Detalhes_Itens.class);

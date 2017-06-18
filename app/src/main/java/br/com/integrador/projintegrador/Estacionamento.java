@@ -15,6 +15,7 @@ public class Estacionamento implements Serializable {
     private String endEstacionamento;
     private String bairroEstacionamento;
     private String cidEstacionamento;
+    private String EmailEstacionamento;
 
     public String getProprietEstacionamento() {
         return proprietEstacionamento;
@@ -71,9 +72,18 @@ public class Estacionamento implements Serializable {
     public void setCidEstacionamento(String cidEstacionamento) {
         this.cidEstacionamento = cidEstacionamento;
     }
+    public String getEmailEstacionamento() {
+        return EmailEstacionamento;
+    }
+
+    public void setEmailEstacionamento(String emailEstacionamento) {
+        EmailEstacionamento = emailEstacionamento;
+    }
 
     @Override
     public String toString() {
         return nomeEstacionamento;
     }
+
+
 }

@@ -48,7 +48,7 @@ public class Cadastrar_EstacionamentoActivity extends AppCompatActivity {
                 estacionamento.setEndEstacionamento(edtEndereco.getText().toString());
                 estacionamento.setBairroEstacionamento(edtBairro.getText().toString());
                 estacionamento.setCidEstacionamento(edtCidade.getText().toString());
-                estacionamento.setCidEstacionamento(edtEmail.getText().toString());
+                estacionamento.setEmailEstacionamento(edtEmail.getText().toString());
 
                 estacionamentoReference.child(edtPropriet.getText().toString()).setValue(estacionamento);
 
